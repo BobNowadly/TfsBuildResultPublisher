@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
 namespace TfsBuildResultPublisher
@@ -53,6 +55,12 @@ namespace TfsBuildResultPublisher
             trx = storageReplace.Aggregate(trx,
                 (current, replacement) => current.Replace(replacement.Key.ToString(), replacement.Value.ToString()));
             return trx;
+        }
+
+        public static string ChangeTestRunId(string trxPath)
+        {
+            return Regex.Replace(File.ReadAllText(trxPath), "TestRun id=\".{36}\"",
+                                          string.Format("TestRun id=\"{0}\"", Guid.NewGuid()));
         }
 
         private static void FixEndDateBeforeStartDate(XDocument doc)

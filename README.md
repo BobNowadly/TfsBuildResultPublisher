@@ -32,6 +32,7 @@ TfsBuildResultPublisher allows you to create a Fake build, and publish test resu
       --buildController=VALUE      The name of the build controller to use when creating the build definition (default, first controller)
       --publishTestRun             Creates a test run in Test Manager (requires tcm.exe installed)
       --fixTestIds                 If the .trx file comes from VSTest.Console.exe, the testId's will not be recognised by Test Runs (for associated automation)
+      --tryAllSuites               If true then the testSuiteId is ignored and tcm is used to query TFS for all suites in the project. Then tries to publish the same trx file for all test suites
       --testSuiteId=VALUE          The Test Suite to publish the results of the test run to [tcm /suiteId]
       --testConfigid=VALUE         The Test Configuration to publish the results of the test run to [tcm /configId]
       --testRunTitle=VALUE         The title of the test run [tcm /title]

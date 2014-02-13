@@ -23,6 +23,7 @@
         public string TestRunTitle { get; set; }
         public string TestRunResultOwner { get; set; }
         public bool FixTestIds { get; set; }
+        public bool TryAllSuites { get; set; }
         public string TeamCityBuildId { get; set; }
         public string TeamCityServerAddress { get; set; }
         public string TeamCityUserId { get; set; }

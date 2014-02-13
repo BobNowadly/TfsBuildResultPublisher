@@ -40,6 +40,7 @@ namespace TfsBuildResultPublisher
                     {"keepForever", "Does the build participates in the retention policy of the build definition or to keep the build forever", v=>localConfiguration.KeepForever = (v != null)},
                     {"buildController=", @"The name of the build controller to use when creating the build definition (default, first controller)", v => localConfiguration.BuildController = v},
                     {"publishTestRun", @"Creates a test run in Test Manager (requires tcm.exe installed)", v => localConfiguration.PublishTestRun = (v != null)},
+                    {"tryAllSuites", @"If true then the testSuiteId is ignored and tcm is used to query TFS for all suites in the project. Then tries to publish the same trx file for all test suites)", v => localConfiguration.TryAllSuites = (v != null)},
                     {"fixTestIds", @"If the .trx file comes from VSTest.Console.exe, the testId's will not be recognised by Test Runs (for associated automation)", v => localConfiguration.FixTestIds = (v != null)},
                     {"testSuiteId=", @"The Test Suite to publish the results of the test run to [tcm /suiteId]", v => localConfiguration.TestSuiteId = int.Parse(v)},
                     {"testConfigid=", @"The Test Configuration to publish the results of the test run to [tcm /configId]", v => localConfiguration.TestConfigId = int.Parse(v)},
